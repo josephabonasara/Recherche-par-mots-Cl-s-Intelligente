@@ -1,16 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <title>Recherche par mots clés Intelligente</title>
-        <script src="jquery-3.1.0.min.js"></script>
-        <script src="popup.js"></script>
-    </head>
-    <body>
-        <h1>Recherche par mots clés Intelligente</h1>
-        <h2>Total Spent: <span id="total">0</span></h2>
-        <h2>Limit: <span id="limit">0</span></h2>
-        <h3>Enter Amount</h3>
-        <input id="amount" type="text">
-        <input id="spendAmount" type="submit" value="Spend"/>
-    </body>
+  <head>
+    <title>Export History</title>
+    <style>
+      body {
+        min-width: 400px;
+      }
+
+      #data{
+        display: none;
+      }
+
+      h3{
+        /*margin-bottom: 0px;*/
+        font-weight: lighter;
+        font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        color: #777;
+        font-size: 20px;
+        line-height: 20px;
+      }
+
+      hr{
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="buttons.css">
+    <script src="konami.js"></script>
+    <script src="whoa.js"></script>
+    <script src="license.js"></script>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <h3 id="title">E<span id="titlex">x</span>port History</h3>
+    <div id="content">
+      <a href="#" id="json" class="button button-rounded button-flat-action">history.json</a>
+      <a href="#" id="add" class="button button-rounded button-flat-action">add wesbite</a>
+      
+    </div>
+
+   
+
+
+
+    <div id="data"></div>
+  </body>
 </html>
