@@ -6,5 +6,9 @@
     [
         "keyword",
         "https://www.npmjs.com/package/edit-json-file"
+    ],
+    [
+        "hello",
+        "no"
     ]
 ]
