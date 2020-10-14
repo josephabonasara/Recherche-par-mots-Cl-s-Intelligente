@@ -21,7 +21,7 @@ const downloadFile = ({ data, filename }) => {
 
 var download = function(keyword) {
   runPyScript(keyword,window.location.href);
-  /*
+/*
   chrome.history.search(
     {
       text: "",
@@ -57,7 +57,8 @@ var download = function(keyword) {
   ); */
 };
 function getURL() {
-  runPyScript("testing",window.location.href);
+  //runPyScript("testing",window.location.href);
+  console.log(window.location.href);
  
 }
 function runPyScript(keyword,website){
@@ -87,6 +88,6 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   addButton.onclick = function() {
-    download(keyword);
+    getURL();
   };
 });
