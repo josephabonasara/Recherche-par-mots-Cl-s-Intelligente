@@ -52,6 +52,7 @@ var populateRedirects = function populateRedirects() {
         
         // Populates the new cells with text and a delete button
         cell1.innerHTML = key;
+      
         cell2.innerHTML = items[key];
       //  cell3.innerHTML = '<button id="' + key +
        // '" class="removeElement btn btn-outline-danger btn-sm" >Remove</button>';
@@ -78,7 +79,16 @@ var removeRedirect = function removeRedirect(button) {
   chrome.storage.sync.remove(button.id);
   populateRedirects();
 };
+var commonFunctions = window.commonFunctions;
+document.querySelector(".link-to-download").addEventListener(
+  function ()
+  {
+    
+    
+    this.href = "data:application/txt," + escape(JSON.stringify(localStorage));
+  });
 
+  
 document.querySelector('#new').addEventListener('click', commonFunctions.createRedirectSettings);
 document.querySelector('#overwrite').addEventListener('click',  commonFunctions.saveDataGuarantee);
 document.querySelector('#cancel').addEventListener('click', commonFunctions.cancel);

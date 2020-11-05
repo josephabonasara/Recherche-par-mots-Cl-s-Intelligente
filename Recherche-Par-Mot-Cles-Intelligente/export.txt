@@ -1,0 +1,8 @@
+{
+    School, https://uottawa.brightspace.com/d2l/home
+}
+
+{
+    Physique, https://mabiblio.pearsonerpi.com/
+}
+

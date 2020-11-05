@@ -5,7 +5,7 @@
 // It maps the user-given key to a redirect. 
 var currentTab;
 
-var commonFunctions = window.commonFunctions;
+
 
 // Called when a user wants to save a key as a redirect to the currently open tab.
 // If the key is not undefined or empty, it is saved.
@@ -31,16 +31,7 @@ var openSettings = function() {
   });
 };
 
-/** 
- * Called after all Redirects are examined. Prints a message if no Redirects
- * are created for the current url.
- */ 
-var showMsg = function showMsg(hasKeys) { 
-  if (!hasKeys) { 
-    var messg = 'Aucun url pour ce mots-clès.';
-    document.getElementById('_noRedirects').textContent = messg;
-  }
-};
+
 
 /** 
  * Examines all saved Redirects for the current url and 
@@ -71,6 +62,7 @@ var showCurrentRedirects= function showCurrentRedirects() {
   });
 };
 
+
 document.querySelector('#submit').addEventListener('click', saveData);
 document.querySelector('#settings').addEventListener('click', openSettings);
 document.querySelector('#overwrite').addEventListener('click', commonFunctions.saveDataGuarantee);
@@ -88,4 +80,5 @@ setTimeout(function foo() {
 // Displays previously created redirects
 window.onload = function() {
   showCurrentRedirects();
+  makeTextFile();
 };

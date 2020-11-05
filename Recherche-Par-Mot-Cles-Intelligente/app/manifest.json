@@ -16,6 +16,14 @@
       "scripts/background.js"
     ]
   },
+"commands": {
+          "_execute_browser_action": {
+            "suggested_key": {
+              "default": "Alt+End"
+ 	      "mac": "Command+Shift+Y"
+            }
+          }
+        },
   "browser_action": {
     "default_icon": {
       "19": "images/icon-19.png",
@@ -26,6 +34,10 @@
   },
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "history",
+    "identity",
+    "https://www.googleapis.com/",
+    "downloads"
   ]
 }
