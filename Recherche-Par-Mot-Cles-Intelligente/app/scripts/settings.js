@@ -28,7 +28,7 @@ var populateRedirects = function populateRedirects() {
   while (table.firstChild) {
     table.removeChild(table.firstChild);
   }
-
+  var dict= new Object();
   // Pass in null to get all the items saved in sync storage. The callback
   // function is invoked with an object full of key->redirect mappings.
   chrome.storage.sync.get(null, function(items) {
@@ -54,6 +54,9 @@ var populateRedirects = function populateRedirects() {
         cell1.innerHTML = key;
       
         cell2.innerHTML = items[key];
+
+        dict[key]= items[key];
+        
       //  cell3.innerHTML = '<button id="' + key +
        // '" class="removeElement btn btn-outline-danger btn-sm" >Remove</button>';
         cell3.innerHTML = '<button id="' + key +'" class="removeElement btn "btn btn-success"" >Remove</button>';
@@ -81,12 +84,14 @@ var removeRedirect = function removeRedirect(button) {
 };
 var commonFunctions = window.commonFunctions;
 document.querySelector(".link-to-download").addEventListener(
-  function ()
-  {
-    
-    
-    this.href = "data:application/txt," + escape(JSON.stringify(localStorage));
-  });
+  function saveText() {
+    var tempElem = document.createElement('a');
+    tempElem.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent("hello"));
+    tempElem.setAttribute('download', "data");
+    tempElem.click();
+ }
+
+  );
 
   
 document.querySelector('#new').addEventListener('click', commonFunctions.createRedirectSettings);
