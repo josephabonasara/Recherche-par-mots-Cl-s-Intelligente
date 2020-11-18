@@ -1,6 +1,6 @@
 /* global document, chrome, window, console */
 'use strict';
-
+var dict= new Object();
 var commonFunctions = window.commonFunctions;
 
 var nonusableKeys = new Set(["clear", "getItem", "key", "length", "removeItem", "setItem"]);
@@ -17,6 +17,15 @@ var addRemoveListeners = function addRemoveListeners() {
     });
   }
 };
+var addListeners = function addListeners() {
+  var links = document.getElementsByClassName('gotoLink');
+  for (var j = 0; j < links.length; j++) {
+    var el = links[j];
+    el.addEventListener('click', function(item) {
+      gotoLink(this);
+    });
+  }
+};
 
 
 
@@ -28,7 +37,7 @@ var populateRedirects = function populateRedirects() {
   while (table.firstChild) {
     table.removeChild(table.firstChild);
   }
-  var dict= new Object();
+  
   // Pass in null to get all the items saved in sync storage. The callback
   // function is invoked with an object full of key->redirect mappings.
   chrome.storage.sync.get(null, function(items) {
@@ -49,7 +58,7 @@ var populateRedirects = function populateRedirects() {
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
-        
+        var cell4 = row.insertCell(3);
         // Populates the new cells with text and a delete button
         cell1.innerHTML = key;
       
@@ -60,12 +69,13 @@ var populateRedirects = function populateRedirects() {
       //  cell3.innerHTML = '<button id="' + key +
        // '" class="removeElement btn btn-outline-danger btn-sm" >Remove</button>';
         cell3.innerHTML = '<button id="' + key +'" class="removeElement btn "btn btn-success"" >Remove</button>';
- 
+        cell4.innerHTML = '<button id="' + key+'" class="gotoLink btn "btn btn-success"" >Go to URL</button>';
       }
 
     }
 
     addRemoveListeners();
+    addListeners();
   });
 };
 
@@ -82,18 +92,12 @@ var removeRedirect = function removeRedirect(button) {
   chrome.storage.sync.remove(button.id);
   populateRedirects();
 };
-var commonFunctions = window.commonFunctions;
-document.querySelector(".link-to-download").addEventListener(
-  function saveText() {
-    var tempElem = document.createElement('a');
-    tempElem.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent("hello"));
-    tempElem.setAttribute('download', "data");
-    tempElem.click();
- }
-
-  );
-
+var gotoLink = function gotoLink(button) {  
+  var key2 = button.id;
+  console.log('Going to link ' + button.id); 
   
-document.querySelector('#new').addEventListener('click', commonFunctions.createRedirectSettings);
-document.querySelector('#overwrite').addEventListener('click',  commonFunctions.saveDataGuarantee);
-document.querySelector('#cancel').addEventListener('click', commonFunctions.cancel);
+ // window.open(chrome.storage.sync.getElementById(button.id),"_blank");
+ window.open(dict[key2],"_blank");
+};
+
+
