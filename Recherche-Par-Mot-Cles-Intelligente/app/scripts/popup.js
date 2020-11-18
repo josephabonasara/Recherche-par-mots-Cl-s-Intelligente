@@ -53,7 +53,7 @@ var showCurrentRedirects= function showCurrentRedirects() {
 
           ul.appendChild(elem);
 
-          var msg = "Mots clé pour ce url:";
+          var msg = "Mot clé pour ce url:";
           document.getElementById('_redirectsMsg').textContent = msg;
         }
       }

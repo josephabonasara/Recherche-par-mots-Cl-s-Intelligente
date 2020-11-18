@@ -68,8 +68,8 @@ var populateRedirects = function populateRedirects() {
         
       //  cell3.innerHTML = '<button id="' + key +
        // '" class="removeElement btn btn-outline-danger btn-sm" >Remove</button>';
-        cell3.innerHTML = '<button id="' + key +'" class="removeElement btn "btn btn-success"" >Remove</button>';
-        cell4.innerHTML = '<button id="' + key+'" class="gotoLink btn "btn btn-success"" >Go to URL</button>';
+        cell3.innerHTML = '<button id="' + key +'" class="removeElement btn btn-primary btn-sm" >Remove</button>';
+        cell4.innerHTML = '<button id="' + key+'" class="gotoLink btn btn-primary btn-sm" >Go to URL</button>';
       }
 
     }

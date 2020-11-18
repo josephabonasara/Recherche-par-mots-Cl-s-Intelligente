@@ -17,9 +17,9 @@ var scoped = function() {
   // The error code when trying to access local storage.
   var ERROR_FLAG = -1;
 
-  var MSG_SAVE_FAIL = 'ERROR pas sauvegardez: ';
-  var MSG_SAVE_SUCCESS = 'Mot-clès et Siteweb Sauvegardez!<br>';
-  var MSG_BAD_KEY = 'Mot-clès devrait avoir au moin 1 charactère.';
+  var MSG_SAVE_FAIL = 'ERROR pas sauvegardé: ';
+  var MSG_SAVE_SUCCESS = 'Mot-clé et Site Web Sauvegardé!<br>';
+  var MSG_BAD_KEY = 'Mot-clé devrait avoir au moin 1 charactère.';
 
   // The public object we are going to expose on window.
   var pub = {};
