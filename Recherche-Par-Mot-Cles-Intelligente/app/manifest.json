@@ -19,7 +19,8 @@
 "commands": {
           "_execute_browser_action": {
             "suggested_key": {
-              "default": "Alt+End"
+              "default": "Alt+End",
+	      "mac": "Shift+Command+Down"
  	     
             }
           }
